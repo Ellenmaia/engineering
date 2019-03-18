@@ -1,0 +1,16 @@
+package com.engineering.prova.entity;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Vendedor {
+	
+	private Integer id;
+	private String nome;
+	private String cpf;
+	
+	Temos uma entidade Cliente (id, nome, CPF, Sexo) 
+	com relacionamento muitos para um e entidade
+	Vendedor (id, nome, CPF).
+
+}

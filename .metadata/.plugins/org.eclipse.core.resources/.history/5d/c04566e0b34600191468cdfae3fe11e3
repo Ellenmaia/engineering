@@ -1,0 +1,8 @@
+package com.engineering.prova.entity;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Vendedor {
+
+}

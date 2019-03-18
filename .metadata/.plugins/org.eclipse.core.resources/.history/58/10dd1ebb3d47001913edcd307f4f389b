@@ -1,0 +1,8 @@
+package com.engineering.prova.repositors;
+
+import org.h2.util.Task;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ClienteRepository extends JpaRepository<Task, Integer>{
+
+}

@@ -1,0 +1,11 @@
+package com.engineering.prova.entity;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Cliente {
+	private Integer id;
+	private String nome;
+	private String cpf;
+	private String sexo;
+}

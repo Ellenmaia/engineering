@@ -1,0 +1,5 @@
+package com.engineering.prova.repositors;
+
+public interface ClienteRepository extends JpaRepository<Task, Integer>{
+
+}

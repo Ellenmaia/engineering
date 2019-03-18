@@ -1,0 +1,15 @@
+package com.engineering.prova.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.engineering.prova.repository.VendedorRepository;
+
+@RestController
+public class VendedorController {
+	private VendedorRepository vendedorRepository;
+
+	VendedorController (VendedorRepository vendedorRepository){
+		this.vendedorRepository = vendedorRepository;
+	}
+	
+}

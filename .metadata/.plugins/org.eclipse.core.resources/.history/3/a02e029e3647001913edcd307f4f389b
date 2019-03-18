@@ -1,0 +1,5 @@
+package com.engineering.prova.repository;
+
+public class ClienteRepository {
+
+}

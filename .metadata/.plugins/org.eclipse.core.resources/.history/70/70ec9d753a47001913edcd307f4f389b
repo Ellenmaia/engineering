@@ -1,0 +1,9 @@
+package com.engineering.prova.repository;
+
+import java.util.List;
+
+import com.engineering.prova.entity.Vendedor;
+
+public interface VendedorRepository {
+	List<Vendedor> findAllByOrderByTasksWeight();	
+}

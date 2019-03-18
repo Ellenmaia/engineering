@@ -1,0 +1,60 @@
+package com.engineering.prova.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.boot.autoconfigure.batch.BatchProperties.Job;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.engineering.prova.entity.Vendedor;
+import com.engineering.prova.repository.VendedorRepository;
+
+@RestController
+public class VendedorController {
+	private Vendedor jobRepository;
+
+	VendedorController (VendedorRepository jobRepository){
+		this.jobRepository = jobRepository;
+	}
+	
+	@RequestMapping(value={"/jobs"}, method={RequestMethod.POST} )
+	public Job inserir(@RequestBody Job job) {
+		return jobRepository.save(job);
+	}
+	
+	@RequestMapping(value={"/jobs"}, method={RequestMethod.GET})
+	public List<Job> buscar(boolean sortByWeight) {
+		
+		if (sortByWeight == true)
+			return jobRepository.findAllByOrderByTasksWeight();
+		else
+			return jobRepository.findAll();
+	}
+
+	@RequestMapping(value={"/jobs/{id}"}, method={RequestMethod.GET})
+	public ResponseEntity form3(@PathVariable("id") Integer id) {
+		//Tirar o ResponseEntity<Job> por ResponseEntity pois o retorno 
+		//do notFound não é do tipo Job
+		Optional<Job> findById = jobRepository.findById(id);
+		
+		if (findById.isPresent())
+			return ResponseEntity.ok(findById.get());
+		else
+			return ResponseEntity.notFound().build();	
+	}
+	
+	@RequestMapping(value={"/jobs/{id}"}, method={RequestMethod.DELETE})
+	public void delete(@PathVariable("id") Integer id) {
+		jobRepository.deleteById(id);
+	}
+	
+	@RequestMapping(value={"/jobs/{id}"}, method={RequestMethod.PUT})
+	public Job update(@PathVariable("id") Integer id, @RequestBody Job job) {
+		return jobRepository.save(job);
+	}
+}

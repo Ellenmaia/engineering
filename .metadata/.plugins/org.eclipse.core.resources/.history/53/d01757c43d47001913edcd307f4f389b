@@ -1,0 +1,28 @@
+package com.engineering.prova.controller;
+
+import javax.transaction.Transactional;
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.engineering.prova.entity.Vendedor;
+import com.engineering.prova.repositors.VendedorRepository;
+
+@RestController
+public class VendedorController {
+	private VendedorRepository vendedorRepository;
+
+	VendedorController (VendedorRepository vendedorRepository){
+		this.vendedorRepository = vendedorRepository;
+	}
+	
+	@Transactional
+	@RequestMapping(value={"/vendedor"}, method={RequestMethod.POST} )
+	public Vendedor inserir(@RequestBody Vendedor vendedor) {
+		
+		return vendedorRepository.save(vendedor);
+
+	}
+}

@@ -1,0 +1,9 @@
+package com.engineering.prova.dao;
+
+public class ClienteDAO {
+private Integer id;
+
+	private String nome;	
+	private String cpf;
+	private String sexo;
+}

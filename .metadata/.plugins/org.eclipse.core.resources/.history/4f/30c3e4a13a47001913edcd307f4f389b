@@ -1,0 +1,11 @@
+package com.engineering.prova.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.engineering.prova.repositors.ClienteRepository;
+
+@RestController
+public class ClienteController {
+	private ClienteRepository clienteRepository;
+
+}
